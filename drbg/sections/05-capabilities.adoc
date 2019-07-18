@@ -56,6 +56,7 @@ NOTE: 10 The 'addtionalInput' configuration and restrictions are the same as tho
 
 An example registration within an algorithm capability exchange looks like this
 
+[source,json]
 ----
 "capability_exchange":
 [

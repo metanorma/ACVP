@@ -6,6 +6,7 @@
 include::../references/normative/*[]
 ++++
 
+////
 [bibliography]
 == Informative References
 
@@ -13,3 +14,4 @@ include::../references/normative/*[]
 include::../references/informative/*.xml[]
 ++++
 
+////

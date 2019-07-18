@@ -3,7 +3,8 @@
 
 The following is a example JSON object advertising support for ctrDRBG with 3KeyTDEA and all key sizes of AES.
 
-....
+[source,json]
+----
 {
   "algorithm": "ctrDRBG",
   "revision": "1.0",
@@ -162,12 +163,13 @@ The following is a example JSON object advertising support for ctrDRBG with 3Key
     }
   ]
 }
-....
+----
 
 
 The following is a example JSON object advertising support for hashDRBG with various SHA sizes. Note that in this example the implementation works with or without additional input and personalization data.
 
-....
+[source,json]
+----
 {
   "algorithm": "hashDRBG",
   "revision": "1.0",
@@ -309,7 +311,7 @@ The following is a example JSON object advertising support for hashDRBG with var
     }
   ]
 }
-....
+----
 
 
 
@@ -318,7 +320,8 @@ The following is a example JSON object advertising support for hashDRBG with var
 
 The following is a example JSON object for ctrDRBG test vectors sent from the ACVP server to the crypto module.
 
-....
+[source,json]
+----
 [
   { "acvVersion": <acvp-version> },
   { "vectorSetId": 1133,
@@ -370,13 +373,13 @@ The following is a example JSON object for ctrDRBG test vectors sent from the AC
     ]
   }
 ]
-....
+----
 
 
 The following is a example JSON object for hmacDRBG test vectors sent from the ACVP server to the crypto module.
 
-[align=left,alt=,type=]
-....
+[source,json]
+----
 [
   { "acvVersion": <acvp-version> },
   { "vectorSetId": 1146,
@@ -427,12 +430,13 @@ The following is a example JSON object for hmacDRBG test vectors sent from the A
     ]
   }
 ]
-....
+----
 
 
 The following is a example JSON object for hashDRBG test vectors sent from the ACVP server to the crypto module. In this example the implementation is tested without additional input and personalization data.
 
-....
+[source,json]
+----
 [
   { "acvVersion": <acvp-version> },
   { "vectorSetId": 1156,
@@ -483,12 +487,13 @@ The following is a example JSON object for hashDRBG test vectors sent from the A
     ]
   }
 ]
-....
+----
 
 
 The following is a example JSON object for hashDRBG test vectors sent from the ACVP server to the crypto module. In this example the implementation is tested with "predResistance": false, "reSeed": true options.
 
-....
+[source,json]
+----
 [
   { "acvVersion": <acvp-version> },
   { "vectorSetId": 1157,
@@ -545,12 +550,13 @@ The following is a example JSON object for hashDRBG test vectors sent from the A
     ]
   }
 ]
-....
+----
 
 
 The following is a example JSON object for hashDRBG test vectors sent from the ACVP server to the crypto module. In this example the implementation is tested with "predResistance": false, "reSeed": false options.
 
-....
+[source,json]
+----
 [
   { "acvVersion": <acvp-version> },
   { "vectorSetId": 1167,
@@ -601,7 +607,7 @@ The following is a example JSON object for hashDRBG test vectors sent from the A
     ]
   }
 ]
-....
+----
 
 
 
@@ -610,7 +616,8 @@ The following is a example JSON object for hashDRBG test vectors sent from the A
 
 The following is a example JSON object for ctrDRBG with 3KeyTDEA test results sent from the crypto module to the ACVP server.
 
-....
+[source,json]
+----
 [{
     "acvVersion": <acvp-version>
   },
@@ -631,12 +638,13 @@ The following is a example JSON object for ctrDRBG with 3KeyTDEA test results se
     ]
   }
 ]
-....
+----
 
 
 The following is a example JSON object for HMAC_DRBG test results sent from the crypto module to the ACVP server.
 
-....
+[source,json]
+----
 [{
     "acvVersion": <acvp-version>
   },
@@ -656,12 +664,13 @@ The following is a example JSON object for HMAC_DRBG test results sent from the 
     }]
   }
 ]
-....
+----
 
 
 The following is a example JSON object for hashDRBG test results sent from the crypto module to the ACVP server.
 
-....
+[source,json]
+----
 [{
     "acvVersion": <acvp-version>
   },
@@ -681,12 +690,13 @@ The following is a example JSON object for hashDRBG test results sent from the c
     }]
   }
 ]
-....
+----
 
 
 The following is a example JSON object for hashDRBG test results sent from the crypto module to the ACVP server.
 
-....
+[source,json]
+----
 [{
     "acvVersion": <acvp-version>
   },
@@ -706,12 +716,13 @@ The following is a example JSON object for hashDRBG test results sent from the c
     }]
   }
 ]
-....
+----
 
 
 The following is a example JSON object for hashDRBG test results sent from the crypto module to the ACVP server.
 
-....
+[source,json]
+----
 [{
     "acvVersion": <acvp-version>
   },
@@ -731,4 +742,4 @@ The following is a example JSON object for hashDRBG test results sent from the c
     }]
   }
 ]
-....
+----

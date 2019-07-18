@@ -1,6 +1,6 @@
 
 [#prerequisites]
-=== Prerequisites
+== Prerequisites
 
 Each algorithm implementation *MAY* rely on other cryptographic primitives.	For example, XXXXXX. Each of these underlying algorithm primitives must be validated, either separately or as part of the same submission. ACVP provides a mechanism for specifying the required prerequisites:
 
@@ -17,6 +17,7 @@ A "valValue" of "same" *SHALL* be used to indicate that the prerequisite is bein
 
 An example description of prequisites within a single algorithm capability exchange looks like this
 
+[source,json]
 ----
 "prereqVals":
 [

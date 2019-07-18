@@ -1,0 +1,15 @@
+<reference anchor="SP800-90A">
+  <front>
+    <title>Recommendation for Random Number Generation Using Deterministic Random Bit Generators</title>
+
+    <author initials="E." surname="Barker">
+      <organization>NIST</organization>
+    </author>
+ 
+    <author initials="J." surname="Kelsey">
+      <organization>NIST</organization>
+    </author>
+
+    <date day="29" month="June" year="2015"></date>
+  </front>
+</reference>

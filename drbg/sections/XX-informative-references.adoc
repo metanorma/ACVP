@@ -1,0 +1,7 @@
+
+[bibliography]
+== Informative References
+
+++++
+include::../references/informative/*.xml[]
+++++

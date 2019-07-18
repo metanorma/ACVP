@@ -1,0 +1,15 @@
+<reference anchor="DRBGVS">
+  <front>
+    <title>The NIST SP 800-90A Deterministic Random Bit Generator Validation System (DRBGVS)</title>
+
+    <author initials="S." surname="Keller">
+      <organization>NIST</organization>
+    </author>
+
+    <author initials="T." surname="Hall">
+      <organization>NIST</organization>
+    </author>
+
+    <date day="29" month="October" year="2015"></date>
+  </front>
+</reference>

@@ -1,0 +1,46 @@
+= ACVP Deterministic Random Bit Generator (DRBG) Algorithm JSON Specification
+:doctype: internet-draft
+:name: draft-vassilev-acvp-drbg-00
+:abbrev: ACVP DRBG
+:status: informational
+:ipr: trust200902
+:submissionType: individual
+:area: Internet
+:intended-series: full-standard
+:revdate: 2019-06-05T
+:forename_initials: A.V.
+:lastname: Vassilev
+:fullname: Apostol Vassilev
+:organization: National Institute of Standards and Technology
+:street: 100 Bureau Drive
+:city: Gaithersburg
+:code: 20899
+:country: United States of America
+:email: apostol.vassilev@nist.gov
+:docfile: draft-vassilev-acvp-drbg.adoc
+:mn-document-class: ietf
+:mn-output-extensions: xmlrfc2,txt,html,nits
+
+// Singular name of the algorithm
+:spec-algorithm: SP800-90A DRBG
+
+include::common-sections/00-abstract.adoc[]
+include::common-sections/01-intro.adoc[]
+include::common-sections/02-conventions.adoc[]
+include::sections/03-supported.adoc[]
+include::sections/04-testtypes.adoc[]
+include::common-sections/XX-capabilities-description.adoc[]
+include::common-sections/XX-prerequisites.adoc[]
+include::sections/05-capabilities.adoc[]
+include::common-sections/XX-test-vector-intro.adoc[]
+include::sections/06-test-vectors.adoc[]
+include::sections/07-responses.adoc[]
+include::common-sections/10-security.adoc[]
+include::common-sections/11-iana.adoc[]
+include::common-sections/99-acknowledgements.adoc[]
+
+// References must be given before appendixes
+include::sections/XX-normative-references.adoc[]
+//include::sections/XX-informative-references.adoc[]
+
+include::sections/XX-examples.adoc[]

@@ -1,0 +1,11 @@
+<reference anchor="ACVP">
+  <front>
+  <title>ACVP Specification</title>
+
+  <author initials="B." surname="Fussell">
+    <organization>Cisco Systems Inc.</organization>
+  </author>
+
+  <date year="2016"></date>
+  </front>
+</reference>

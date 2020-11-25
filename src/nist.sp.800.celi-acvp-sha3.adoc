@@ -1,0 +1,74 @@
+= ACVP SHA3 and SHAKE JSON Specification
+:title-main: ACVP SHA3 and SHAKE JSON Specification
+:title-main-short: ACVP SHA3 and SHAKE JSON Specification
+:fullname: Christopher Celi
+:affiliation: Computer Security Division, Information Technology Laboratory
+:doi: https://doi.org/10.6028/NIST.SP.800-999
+:series: nist-sp
+:title-document-class: Information Security
+:docnumber: 800-999
+:issued-date: 2018-11-01
+:copyright-year: 2018
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: acvp@nist.gov.example
+:docfile: nist.sp.800.acvp-pbkdf.adoc
+:mn-document-class: nist
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: SHA3 and SHAKE
+:algo-short-name: SHA3 and SHAKE
+
+// Commented out RFC-specific files
+// include::common/common-sections/00-abstract.adoc[]
+//
+// include::common/common-sections/02-conventions.adoc[]
+
+// Use NIST SP structure
+include::common/nist-sections/00-itl-preface.adoc[]
+
+include::common/nist-sections/00-abstract.adoc[]
+
+include::common/nist-sections/00-preface.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::sha3/sections/03-supported.adoc[]
+
+include::sha3/sections/04-testtypes.adoc[]
+
+include::sha3/sections/XX-requirements-covered.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::sha3/sections/05-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::sha3/sections/06-test-vectors.adoc[]
+
+include::sha3/sections/07-responses.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+// Commented out RFC-specific files
+// include::common/common-sections/11-iana.adoc[]
+//
+// include::common/common-sections/99-acknowledgements.adoc[]
+
+// Use NIST SP Appendices
+// Note that NIST SP Acknowledgements belong to the 00-preface.adoc file.
+include::common/nist-sections/95-terminology.adoc[]
+
+include::common/nist-sections/96-abbrev.adoc[]
+
+include::common/nist-sections/97-revision-history.adoc[]
+
+// References must be given before appendixes
+include::sha3/sections/98-references.adoc[]

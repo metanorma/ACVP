@@ -1,0 +1,62 @@
+= ACVP Symmetric Block Cipher Algorithm JSON Specification
+:title-main: ACVP Symmetric Block Cipher Algorithm JSON Specification
+:title-main-short: ACVP Symmetric Block Cipher Algorithm JSON Specification
+:fullname: Christopher Celi
+:affiliation: Computer Security Division, Information Technology Laboratory
+:doi: https://doi.org/10.6028/NIST.SP.800-999
+:series: nist-sp
+:title-document-class: Information Security
+:docnumber: 800-999
+:issued-date: 2019-02-01
+:copyright-year: 2019
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: acvp@nist.gov.example
+:docfile: nist.sp.800.acvp-pbkdf.adoc
+:mn-document-class: nist
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: Symmetric Block Cipher
+:algo-short-name: Block Cipher
+
+include::common/common-sections/00-abstract.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::symmetric/sections/01-intro-extra.adoc[]
+
+include::common/common-sections/02-conventions.adoc[]
+
+include::symmetric/sections/03-supported.adoc[]
+
+include::symmetric/sections/04-testtypes.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::symmetric/sections/05-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::symmetric/sections/06-test-vectors.adoc[]
+
+include::symmetric/sections/07-responses.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+include::common/common-sections/11-iana.adoc[]
+
+include::symmetric/sections/99-acknowledgements.adoc[]
+
+// References must be given before appendixes
+include::symmetric/sections/98-references.adoc[]
+
+include::symmetric/sections/97-examples.adoc[]
+
+
+

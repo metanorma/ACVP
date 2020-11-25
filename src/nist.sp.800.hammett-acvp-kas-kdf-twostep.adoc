@@ -1,0 +1,72 @@
+= ACVP KAS KDF TwoStep Specification
+:title-main: ACVP KAS KDF TwoStep Specification
+:title-main-short: ACVP KAS KDF TwoStep Specification
+:fullname: Russell Hammett
+:affiliation: HII
+:doi: https://doi.org/10.6028/NIST.SP.800-999
+:series: nist-sp
+:title-document-class: Information Security
+:docnumber: 800-999
+:issued-date: 2020-07-14
+:copyright-year: 2020
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: acvp@nist.gov.example
+:docfile: nist.sp.800.acvp-pbkdf.adoc
+:mn-document-class: nist
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: KAS-KDF-TwoStep SP800-56Cr1
+:algo-short-name: KAS-KDF-TwoStep SP800-56Cr1
+
+// Commented out RFC-specific files
+// include::common/common-sections/00-abstract.adoc[]
+//
+// include::common/common-sections/02-conventions.adoc[]
+
+// Use NIST SP structure
+include::common/nist-sections/00-itl-preface.adoc[]
+
+include::common/nist-sections/00-abstract.adoc[]
+
+include::common/nist-sections/00-preface.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::kas/sp800-56cr1/twostep/sections/03-supported.adoc[]
+
+include::kas/sp800-56cr1/twostep/sections/04-testtypes.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::kas/sp800-56cr1/twostep/sections/05-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::kas/sp800-56cr1/twostep/sections/06-test-vectors.adoc[]
+
+include::kas/sp800-56cr1/twostep/sections/07-responses.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+// Commented out RFC-specific files
+// include::common/common-sections/11-iana.adoc[]
+//
+// include::common/common-sections/99-acknowledgements.adoc[]
+
+// Use NIST SP Appendices
+// Note that NIST SP Acknowledgements belong to the 00-preface.adoc file.
+include::common/nist-sections/95-terminology.adoc[]
+
+include::common/nist-sections/96-abbrev.adoc[]
+
+include::common/nist-sections/97-revision-history.adoc[]
+
+// References must be given before appendixes
+include::kas/sp800-56cr1/twostep/sections/98-references.adoc[]

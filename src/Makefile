@@ -2,17 +2,17 @@
 
 SRCS = $(wildcard *.adoc)
 HTML 	:= $(patsubst %.adoc, %.html, $(SRCS))
-TXT 	:= $(patsubst %.adoc, %.txt,  $(SRCS))
+PDF 	:= $(patsubst %.adoc, %.pdf,  $(SRCS))
 
-all: $(HTML) $(TXT)
+all: $(HTML) $(PDF)
 
 update:
 	bundle install
 
 clean:
-	rm -rf *.err *.html *.xml *.txt documents/
+	rm -rf *.err *.html *.xml *.pdf *.rxl documents/
 
-%.html %.txt: %.adoc
+%.html %.pdf: %.adoc
 	bundle exec metanorma compile $<
 
 publish:

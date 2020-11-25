@@ -1,0 +1,90 @@
+= ACVP ECDSA Algorithm JSON Specification
+:title-main: ACVP ECDSA Algorithm JSON Specification
+:title-main-short: ACVP ECDSA Algorithm JSON Specification
+:fullname: Barry Fussell
+:affiliation: Cisco Systems\, Inc.
+:address: 170 West Tasman Drive, San Jose, California
+:doi: https://doi.org/10.6028/NIST.CSRC.AVCP.ECDSA
+:series: nist-csts
+:series-title: Automated Cryptographic Validation Protocol
+:series-code: ACVP
+:nist-division: Computer Security Division, Information Technology Laboratory
+:nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
+:docnumber: AVCP.ECDSA
+:issued-date: 2016-06-01
+:copyright-year: 2016
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: acvp@nist.gov.example
+:mn-document-class: nist
+:mn-output-extensions: xml,html,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: FIPS PUB 186 ECDSA
+:algo-short-name: ECDSA
+
+include::common/common-sections/00-preface.adoc[]
+
+include::common/common-sections/00-abstract.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::ecdsa/sections/03-supported.adoc[]
+
+include::ecdsa/sections/04-testtypes.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::ecdsa/sections/05-capabilities.adoc[]
+
+include::ecdsa/sections/05-ecdsa-keygen-capabilities.adoc[]
+
+include::ecdsa/sections/05-ecdsa-keyver-capabilities.adoc[]
+
+include::ecdsa/sections/05-ecdsa-siggen-capabilities.adoc[]
+
+include::ecdsa/sections/05-ecdsa-sigver-capabilities.adoc[]
+
+include::ecdsa/sections/05-ecdsa-detsiggen-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::ecdsa/sections/06-test-vectors.adoc[]
+
+include::ecdsa/sections/06-ecdsa-keygen-test-vectors.adoc[]
+
+include::ecdsa/sections/06-ecdsa-keyver-test-vectors.adoc[]
+
+include::ecdsa/sections/06-ecdsa-siggen-test-vectors.adoc[]
+
+include::ecdsa/sections/06-ecdsa-sigver-test-vectors.adoc[]
+
+include::ecdsa/sections/06-ecdsa-detsiggen-test-vectors.adoc[]
+
+include::ecdsa/sections/07-responses.adoc[]
+
+include::ecdsa/sections/07-ecdsa-keygen-responses.adoc[]
+
+include::ecdsa/sections/07-ecdsa-keyver-responses.adoc[]
+
+include::ecdsa/sections/07-ecdsa-siggen-responses.adoc[]
+
+include::ecdsa/sections/07-ecdsa-sigver-responses.adoc[]
+
+include::ecdsa/sections/07-ecdsa-detsiggen-responses.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+include::common/common-sections/95-terminology.adoc[]
+
+include::common/common-sections/96-abbrev.adoc[]
+
+include::common/common-sections/97-revision-history.adoc[]
+
+// References must be given before appendixes
+include::ecdsa/sections/98-references.adoc[]

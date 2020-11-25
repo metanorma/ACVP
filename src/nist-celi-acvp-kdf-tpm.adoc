@@ -1,0 +1,59 @@
+= ACVP TPM Key Derivation Function JSON Specification
+:title-main: ACVP TPM Key Derivation Function JSON Specification
+:title-main-short: ACVP TPM Key Derivation Function JSON Specification
+:fullname: Christopher Celi
+:affiliation: Computer Security Division, Information Technology Laboratory
+:doi: https://doi.org/10.6028/NIST.CSRC.AVCP.KDF-TPM
+:series: nist-csts
+:series-title: Automated Cryptographic Validation Protocol
+:series-code: ACVP
+:nist-division: Computer Security Division, Information Technology Laboratory
+:nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
+:docnumber: AVCP.KDF-TPM
+:issued-date: 2018-08-01
+:copyright-year: 2018
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: acvp@nist.gov.example
+:mn-document-class: nist
+:mn-output-extensions: xml,html,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: SP800-135 TPM KDF
+:algo-short-name: TPM KDF
+
+include::common/common-sections/00-preface.adoc[]
+
+include::common/common-sections/00-abstract.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::tpm/sections/03-supported.adoc[]
+
+include::tpm/sections/04-testtypes.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::tpm/sections/05-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::tpm/sections/06-test-vectors.adoc[]
+
+include::tpm/sections/07-responses.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+include::common/common-sections/95-terminology.adoc[]
+
+include::common/common-sections/96-abbrev.adoc[]
+
+include::common/common-sections/97-revision-history.adoc[]
+
+// References must be given before appendixes
+include::tpm/sections/98-references.adoc[]

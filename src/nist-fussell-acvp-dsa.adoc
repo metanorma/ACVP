@@ -1,0 +1,88 @@
+= ACVP DSA Algorithm JSON Specification
+:title-main: ACVP DSA Algorithm JSON Specification
+:title-main-short: ACVP DSA Algorithm JSON Specification
+:fullname: Barry Fussell
+:affiliation: Cisco Systems, Inc.
+:address: 170 West Tasman Drive, San Jose, California
+:doi: https://doi.org/10.6028/NIST.CSRC.AVCP.DSA
+:series: nist-csts
+:series-title: Automated Cryptographic Validation Protocol
+:series-code: ACVP
+:nist-division: Computer Security Division, Information Technology Laboratory
+:nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
+:docnumber: AVCP.DSA
+:issued-date: 2016-06-01
+:copyright-year: 2016
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: acvp@nist.gov.example
+:mn-document-class: nist
+:mn-output-extensions: xml,html,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: FIPS 186-4 DSA
+:algo-short-name: DSA
+
+include::common/common-sections/00-preface.adoc[]
+
+include::common/common-sections/00-abstract.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::dsa/sections/03-supported.adoc[]
+
+include::dsa/sections/04-testtypes.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::dsa/sections/05-capabilities.adoc[]
+
+include::dsa/sections/05-pqggen-capabilities.adoc[]
+
+include::dsa/sections/05-pqgver-capabilities.adoc[]
+
+include::dsa/sections/05-keygen-capabilities.adoc[]
+
+include::dsa/sections/05-siggen-capabilities.adoc[]
+
+include::dsa/sections/05-sigver-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::dsa/sections/06-test-vectors.adoc[]
+
+include::dsa/sections/06-pqggen-test-vectors.adoc[]
+
+include::dsa/sections/06-pqgver-test-vectors.adoc[]
+
+include::dsa/sections/06-keygen-test-vectors.adoc[]
+
+include::dsa/sections/06-siggen-test-vectors.adoc[]
+
+include::dsa/sections/06-sigver-test-vectors.adoc[]
+
+include::dsa/sections/07-responses.adoc[]
+
+include::dsa/sections/07-pqggen-responses.adoc[]
+
+include::dsa/sections/07-pqgver-responses.adoc[]
+
+include::dsa/sections/07-keygen-responses.adoc[]
+
+include::dsa/sections/07-siggen-responses.adoc[]
+
+include::dsa/sections/07-sigver-responses.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+// include::common/common-sections/11-iana.adoc[]
+
+include::common/common-sections/99-acknowledgements.adoc[]
+
+// References must be given before appendixes
+include::dsa/sections/98-references.adoc[]

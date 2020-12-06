@@ -31,7 +31,7 @@ Each algorithm capability advertised is a self-contained JSON object using the f
 | function| Type of function supported| array| See <<supported_functions>>| Yes
 | iutId| The identifier of the IUT.| hex|  | No 
 | scheme| Array of supported key agreement schemes each having their own capabilities| object| See <<supported_schemes>>| No
-| domainParameterGen| Array of IUT supported domain paameter generation methods.  Note that "FB" and "FC" are considered legacy, and should only be included for interoperability with othe systems unable to support the safe prime groups.| array | MODP-2048, MODP-3072, MODP-4096, MODP-6144, MODP-8192, ffdhe2048, ffdhe3072, ffdhe4096, ffdhe6144, ffdhe8192, FB, FC| No
+| domainParameterGenerationMethods| Array of IUT supported domain parameter generation methods.  Note that "FB" and "FC" are considered legacy, and should only be included for interoperability with other systems unable to support the safe prime groups.| array | MODP-2048, MODP-3072, MODP-4096, MODP-6144, MODP-8192, ffdhe2048, ffdhe3072, ffdhe4096, ffdhe6144, ffdhe8192, FB, FC| No
 |===
 
 Note: Some optional values are *REQUIRED* depending on the algorithm. Failure to provide these values will result in the ACVP server returning an error to the ACVP client during registration.
@@ -97,7 +97,7 @@ Note that AT LEAST one KDF Method is required for KAS schemes.  The following *M
 | JSON Value| Description| JSON type| Valid Values| Optional
 
 | auxFunctions| The auxiliary functions to use with the KDF.| array of <<auxfunc>>| See <<auxfunc>>| No
-| fixedInfoPattern| The pattern used for fixedInfo construction. | string| See <<twostepkdf>>| No
+| fixedInfoPattern| The pattern used for fixedInfo construction. | string| See <<fixedinfopatcon>>| No
 | encoding| The encoding type to use with fixedInfo construction.  Note concatenation is currently supported.  ASN.1 should be coming. | array of string| concatenation| No
 |===
 
@@ -106,7 +106,7 @@ Note that AT LEAST one KDF Method is required for KAS schemes.  The following *M
 |===
 | JSON Value| Description| JSON type| Valid Values| Optional
 
-| auxFunctionName| The auxiliary function to use.| string| SHA2-224, SHA2-256, SHA2-384, SHA2-512, SHA@-512/224, SHA2-512/256, SHA3-224, SHA3-256, SHA3-384, SHA3-512, KMAC-128, KMAC-256 | No
+| auxFunctionName| The auxiliary function to use.| string| SHA2-224, SHA2-256, SHA2-384, SHA2-512, SHA2-512/224, SHA2-512/256, SHA3-224, SHA3-256, SHA3-384, SHA3-512, HMAC-SHA2-224, HMAC-SHA2-256, HMAC-SHA2-384, HMAC-SHA2-512, HMAC-SHA2-512/224, HMAC-SHA2-512/256, HMAC-SHA3-224, HMAC-SHA3-256, HMAC-SHA3-384, HMAC-SHA3-512, KMAC-128, KMAC-256 | No
 | macSaltMethod| How the salt is determined (default being all 00s, random being a random salt). | array of string| default, random| Not optional for mac based auxiliary functions.
 |===
 
@@ -154,7 +154,7 @@ Note this capabilities object is very similar to the capability object from SP80
 [[fixedinfopatcon]]
 ===== FixedInfoPatternConstruction
 
-IUTs *SHALL* be capable of specifying how the FixedInfo is constructed for the KAS/KTS negotiation.
+IUTs *MUST* be capable of specifying how the FixedInfo is constructed for the KAS/KTS negotiation. Note that for the purposes of testing against the ACVP system, both uPartyInfo and vPartyInfo are *REQUIRED* to be registered within the fixed info pattern.
 
 Pattern candidates:
 
@@ -178,6 +178,9 @@ algorithmId.
 
 * label
   ** Random value chosen by ACVP server to represent the label.
+
+* l
+  ** The length of the derived keying material in bits, *MUST* be represented in 32 bits for ACVP testing.
 
 Example (Note that party U is the server in this case "434156536964", party V is the IUT "a1b2c3d4e5"):
 

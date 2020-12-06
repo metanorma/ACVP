@@ -1,7 +1,9 @@
 # ACVP
 The [Automated Cryptographic Validation Protocol](./draft-fussell-acvp-spec.html) (ACVP) is a protocol currently under development to support a new National Voluntary Laboratory Accreditation Program (NVLAP) testing scope at the [National Institute of Standards and Technology (NIST)](https://www.nist.gov).  
 
-All current information about ACVP may be found within this Github project. View the documents at https://usnistgov.github.io/ACVP/.
+All current information about ACVP protocol may be found within this Github project. View the protocol documents at https://usnistgov.github.io/ACVP/.
+
+For issues regarding the actual ACVP Server implementation, as well as pre-release (demo) and release notes (prod), see the ACVP-Server repository: https://github.com/usnistgov/ACVP-Server/
 
 # Jump to
 * [Background](#background)
@@ -19,6 +21,7 @@ All current information about ACVP may be found within this Github project. View
   * [Key Agreement](#key-agreement)
   * [KDFs](#kdfs)
   * [SafePrimes](#safe-primes)
+  * [ConditioningComponents](#conditioning-components)
 * [Accessing the demo server](#accessing-the-demo-server)
 * [Contribution guidelines](contribution-guidelines)
 * [Related projects](#related-projects)
@@ -128,14 +131,14 @@ The demo server allows validation of the following algorithms (a superset of the
 * [SHAKE-256](./draft-celi-acvp-sha3.txt) - [HTML](./draft-celi-acvp-sha3.html)
 
 ### XOFs
-* [cSHAKE-128](./draft-celi-acvp-xof-00.txt) - [HTML](./draft-celi-acvp-xof-00.html)
-* [cSHAKE-256](./draft-celi-acvp-xof-00.txt) - [HTML](./draft-celi-acvp-xof-00.html)
-* [KMAC-128](./draft-celi-acvp-xof-00.txt) - [HTML](./draft-celi-acvp-xof-00.html)
-* [KMAC-256](./draft-celi-acvp-xof-00.txt) - [HTML](./draft-celi-acvp-xof-00.html)
-* [ParallelHash-128](./draft-celi-acvp-xof-00.txt) - [HTML](./draft-celi-acvp-xof-00.html)
-* [ParallelHash-256](./draft-celi-acvp-xof-00.txt) - [HTML](./draft-celi-acvp-xof-00.html)
-* [TupleHash-128](./draft-celi-acvp-xof-00.txt) - [HTML](./draft-celi-acvp-xof-00.html)
-* [TupleHash-256](./draft-celi-acvp-xof-00.txt) - [HTML](./draft-celi-acvp-xof-00.html)
+* [cSHAKE-128](./draft-celi-acvp-xof.txt) - [HTML](./draft-celi-acvp-xof.html)
+* [cSHAKE-256](./draft-celi-acvp-xof.txt) - [HTML](./draft-celi-acvp-xof.html)
+* [KMAC-128](./draft-celi-acvp-xof.txt) - [HTML](./draft-celi-acvp-xof.html)
+* [KMAC-256](./draft-celi-acvp-xof.txt) - [HTML](./draft-celi-acvp-xof.html)
+* [ParallelHash-128](./draft-celi-acvp-xof.txt) - [HTML](./draft-celi-acvp-xof.html)
+* [ParallelHash-256](./draft-celi-acvp-xof.txt) - [HTML](./draft-celi-acvp-xof.html)
+* [TupleHash-128](./draft-celi-acvp-xof.txt) - [HTML](./draft-celi-acvp-xof.html)
+* [TupleHash-256](./draft-celi-acvp-xof.txt) - [HTML](./draft-celi-acvp-xof.html)
 
 ### Message Authentication
 * [AES-GMAC](./draft-celi-acvp-symmetric.txt) - [HTML](./draft-celi-acvp-symmetric.html)
@@ -166,8 +169,8 @@ The demo server allows validation of the following algorithms (a superset of the
 * [RSA mode: keyGen](./draft-celi-acvp-rsa.txt) - [HTML](./draft-celi-acvp-rsa.html)
 * [RSA mode: sigGen](./draft-celi-acvp-rsa.txt) - [HTML](./draft-celi-acvp-rsa.html)
 * [RSA mode: sigVer](./draft-celi-acvp-rsa.txt) - [HTML](./draft-celi-acvp-rsa.html)
-* [RSA mode: signatureComponent](./draft-celi-acvp-rsa.txt) - [HTML](./draft-celi-acvp-rsa.html)
-* [RSA mode: decryptionComponent](./draft-celi-acvp-rsa.txt) - [HTML](./draft-celi-acvp-rsa.html)
+* [RSA mode: signaturePrimitive (Component)](./draft-celi-acvp-rsa.txt) - [HTML](./draft-celi-acvp-rsa.html)
+* [RSA mode: decryptionPrimitive (Component)](./draft-celi-acvp-rsa.txt) - [HTML](./draft-celi-acvp-rsa.html)
 * [RSA mode: legacySigVer](./draft-celi-acvp-rsa.txt) - [HTML](./draft-celi-acvp-rsa.html)
 * [ECDSA mode: sigGenComponent](./draft-fussell-acvp-ecdsa.txt) - [HTML](./draft-fussell-acvp-ecdsa.html)
 * [ECDSA mode: keyGen](./draft-fussell-acvp-ecdsa.txt) - [HTML](./draft-fussell-acvp-ecdsa.html)
@@ -185,6 +188,51 @@ The demo server allows validation of the following algorithms (a superset of the
 * [EDDSA mode: sigVer](./draft-celi-acvp-eddsa.txt) - [HTML](./draft-celi-acvp-eddsa.html) - DEMO only
 
 ### Key Agreement
+#### Full KAS Testing
+
+  Tests against shared secret computation (SSC), key derivation functions (KDF), and optionally key confirmation (KC).  Test vectors issued under this set of tests (with the exception of 1.0 component based tests) are consider "full kas" testing.
+
+* [KAS ECC ephemeralUnified](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
+* [KAS ECC fullMqv](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
+* [KAS ECC fullUnified](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
+* [KAS ECC onePassDh](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
+* [KAS ECC onePassMqv](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
+* [KAS ECC OnePassUnified](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
+* [KAS ECC staticUnified](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
+* [KAS FFC dhHybrid1](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html)
+* [KAS FFC mqv2](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html) 
+* [KAS FFC dhEphem](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html)
+* [KAS FFC dhHybridOneFlow](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html)
+* [KAS FFC mqv1](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html)
+* [KAS FFC dhOneFlow](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html)
+* [KAS FFC dhStatic](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html)
+* [KAS ECC ephemeralUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html)
+* [KAS ECC fullMqv Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html)
+* [KAS ECC fullUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html)
+* [KAS ECC onePassDh Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html)
+* [KAS ECC onePassMqv Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html)
+* [KAS ECC OnePassUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html)
+* [KAS ECC staticUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html)
+* [KAS FFC dhHybrid1 Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html)
+* [KAS FFC mqv2 Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html)
+* [KAS FFC dhEphem Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html)
+* [KAS FFC dhHybridOneFlow Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html)
+* [KAS FFC mqv1 Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html)
+* [KAS FFC dhOneFlow Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html)
+* [KAS FFC dhStatic Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html)
+* [KAS IFC KAS1-basic](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html)
+* [KAS IFC KAS1-Party_V-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html)
+* [KAS IFC KAS2-basic](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html)
+* [KAS IFC KAS2-bilateral-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html)
+* [KAS IFC KAS2-Party_U-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html)
+* [KAS IFC KAS2-Party_V-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html)
+* [KTS IFC KTS-OAEP-basic](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html)
+* [KTS IFC KTS-OAEP-Party_V-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html)
+
+#### KAS SSC Testing
+
+Standalone KAS SSC testing from SP800-56A/B.  Can be used in conjunction with KDF testing (as opposed to full KAS testing) to be considered a valid KAS implementation.
+
 * [KAS ECC ephemeralUnified](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
 * [KAS ECC fullMqv](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
 * [KAS ECC fullUnified](./draft-fussell-acvp-kas-ecc.txt) - [HTML](./draft-fussell-acvp-kas-ecc.html)
@@ -200,44 +248,30 @@ The demo server allows validation of the following algorithms (a superset of the
 * [KAS FFC mqv1](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html)
 * [KAS FFC dhOneFlow](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html)
 * [KAS FFC dhStatic](./draft-fussell-acvp-kas-ffc.txt) - [HTML](./draft-fussell-acvp-kas-ffc.html)
-* [KAS ECC ephemeralUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html) - DEMO only
-* [KAS ECC fullMqv Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html) - DEMO only
-* [KAS ECC fullUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html) - DEMO only
-* [KAS ECC onePassDh Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html) - DEMO only
-* [KAS ECC onePassMqv Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html) - DEMO only
-* [KAS ECC OnePassUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html) - DEMO only
-* [KAS ECC staticUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ecc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ecc-sp800-56ar3.html) - DEMO only
-* [KAS FFC dhHybrid1 Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html) - DEMO only
-* [KAS FFC mqv2 Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html)  - DEMO only
-* [KAS FFC dhEphem Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html) - DEMO only
-* [KAS FFC dhHybridOneFlow Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html) - DEMO only
-* [KAS FFC mqv1 Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html) - DEMO only
-* [KAS FFC dhOneFlow Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html) - DEMO only
-* [KAS FFC dhStatic Sp800-56Ar3](./draft-hammett-acvp-kas-ffc-sp800-56ar3.txt) - [HTML](./draft-hammett-acvp-kas-ffc-sp800-56ar3.html) - DEMO only
-* [KAS IFC KAS1-basic](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html) - DEMO only
-* [KAS IFC KAS1-Party_V-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html) - DEMO only
-* [KAS IFC KAS2-basic](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html) - DEMO only
-* [KAS IFC KAS2-bilateral-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html) - DEMO only
-* [KAS IFC KAS2-Party_U-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html) - DEMO only
-* [KAS IFC KAS2-Party_V-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html) - DEMO only
-* [KTS IFC KTS-OAEP-basic](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html) - DEMO only
-* [KTS IFC KTS-OAEP-Party_V-confirmation](./draft-hammett-acvp-kas-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ifc.html) - DEMO only
-* [KAS KDF OneStep Sp800-56Cr1](./draft-hammett-acvp-kas-kdf-onestep.txt) - [HTML](./draft-hammett-acvp-kas-kdf-onestep.html) - DEMO only
-* [KAS KDF TwoStep Sp800-56Cr1](./draft-hammett-acvp-kas-kdf-twostep.txt) - [HTML](./draft-hammett-acvp-kas-kdf-twostep.html) - DEMO only
-* [KAS SSC ECC ephemeralUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html) - DEMO only
-* [KAS SSC ECC fullMqv Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html) - DEMO only
-* [KAS SSC ECC fullUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html) - DEMO only
-* [KAS SSC ECC onePassDh Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html) - DEMO only
-* [KAS SSC ECC onePassMqv Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html) - DEMO only
-* [KAS SSC ECC OnePassUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html) - DEMO only
-* [KAS SSC ECC staticUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html) - DEMO only
-* [KAS SSC FFC dhHybrid1 Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html) - DEMO only
-* [KAS SSC FFC mqv2 Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html)  - DEMO only
-* [KAS SSC FFC dhEphem Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html) - DEMO only
-* [KAS SSC FFC dhHybridOneFlow Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html) - DEMO only
-* [KAS SSC FFC mqv1 Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html) - DEMO only
-* [KAS SSC FFC dhOneFlow Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html) - DEMO only
-* [KAS SSC FFC dhStatic Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html) - DEMO only
+* [KAS ECC SSC ephemeralUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html)
+* [KAS ECC SSC fullMqv Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html)
+* [KAS ECC SSC fullUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html)
+* [KAS ECC SSC onePassDh Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html)
+* [KAS ECC SSC onePassMqv Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html)
+* [KAS ECC SSC OnePassUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html)
+* [KAS ECC SSC staticUnified Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ecc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ecc.html)
+* [KAS FFC SSC dhHybrid1 Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html)
+* [KAS FFC SSC mqv2 Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html)
+* [KAS FFC SSC dhEphem Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html)
+* [KAS FFC SSC dhHybridOneFlow Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html)
+* [KAS FFC SSC mqv1 Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html)
+* [KAS FFC SSC dhOneFlow Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html)
+* [KAS FFC SSC dhStatic Sp800-56Ar3](./draft-hammett-acvp-kas-ssc-ffc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ffc.html)
+* [KAS IFC SSC KAS1 Sp800-56Br2](./draft-hammett-acvp-kas-ssc-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ifc.html)
+* [KAS IFC SSC KAS2 Sp800-56Br2](./draft-hammett-acvp-kas-ssc-ifc.txt) - [HTML](./draft-hammett-acvp-kas-ssc-ifc.html)
+
+#### KAS KDF Testing SP800-56Cr1
+
+  Standalone KAS KDF testing from SP800-56Cr1.  Can be used in conjunction with SSC testing (as opposed to full KAS testing) to be considered a valid KAS implementation.
+
+* [KAS KDF HKDF Sp800-56Cr1](./draft-hammett-acvp-kas-kdf-hkdf.txt) - [HTML](./draft-hammett-acvp-kas-kdf-hkdf.html)
+* [KAS KDF OneStep Sp800-56Cr1](./draft-hammett-acvp-kas-kdf-onestep.txt) - [HTML](./draft-hammett-acvp-kas-kdf-onestep.html)
+* [KAS KDF TwoStep Sp800-56Cr1](./draft-hammett-acvp-kas-kdf-twostep.txt) - [HTML](./draft-hammett-acvp-kas-kdf-twostep.html)
 
 ### KDFs
 * [Counter KDF](./draft-celi-acvp-kbkdf.txt) - [HTML](./draft-celi-acvp-kbkdf.html)
@@ -249,17 +283,22 @@ The demo server allows validation of the following algorithms (a superset of the
 * [SRTP](./draft-celi-acvp-kdf-srtp.txt) - [HTML](./draft-celi-acvp-kdf-srtp.html)
 * [SSH](./draft-celi-acvp-kdf-ssh.txt) - [HTML](./draft-celi-acvp-kdf-ssh.html)
 * [TLS](./draft-celi-acvp-kdf-tls.txt) - [HTML](./draft-celi-acvp-kdf-tls.html)
-* [TLS v1.3](./draft-hammett-acvp-kdf-tls-v1.3.txt) - [HTML](./draft-hammett-acvp-kdf-tls-v1.3.html)
+* [TLS v1.3](./draft-hammett-acvp-kdf-tls-v1.3.txt) - [HTML](./draft-hammett-acvp-kdf-tls-v1.3.html) - DEMO only
 * [TPM](./draft-celi-acvp-kdf-tpm.txt) - [HTML](./draft-celi-acvp-kdf-tpm.html)
 * [ANSX9.63](./draft-celi-acvp-kdf-ansi-x963.txt) - [HTML](./draft-celi-acvp-kdf-ansi-x963.html)
 * [ANSX9.42](./draft-celi-acvp-kdf-ansi-x942.txt) - [HTML](./draft-celi-acvp-kdf-ansi-x942.html)
 * [PBKDF](./draft-celi-acvp-pbkdf.txt) - [HTML](./draft-celi-acvp-pbkdf.html)
 
 ### Safe Primes
-* [SafePrimes KeyGen](./draft-hammett-acvp-safe-primes.txt) - [HTML](./draft-hammett-acvp-safe-primes.html) - DEMO only
-* [SafePrimes KeyVer](./draft-hammett-acvp-safe-primes.txt) - [HTML](./draft-hammett-acvp-safe-primes.html) - DEMO only
+* [SafePrimes KeyGen](./draft-hammett-acvp-safe-primes.txt) - [HTML](./draft-hammett-acvp-safe-primes.html)
+* [SafePrimes KeyVer](./draft-hammett-acvp-safe-primes.txt) - [HTML](./draft-hammett-acvp-safe-primes.html)
 
-The prod server supports all of the above except for the EdDSA variants, AES-FF3-1, KAS/KTS-IFC, and AES-GCM-SIV. Some of these algorithms have NIST SP800 series drafts in progress and will be available on the prod server when the draft becomes a standard. 
+### Conditioning Components
+* [ConditioningComponent AES-CBC-MAC](./draft-celi-acvp-conditioning-components.txt) - [HTML](./draft-celi-acvp-conditioning-components.html)
+* [ConditioningComponent BlockCipher_DF](./draft-celi-acvp-conditioning-components.txt) - [HTML](./draft-celi-acvp-conditioning-components.html)
+* [ConditioningComponent Hash_DF](./draft-celi-acvp-conditioning-components.txt) - [HTML](./draft-celi-acvp-conditioning-components.html)
+
+The prod server supports all of the above except for the EdDSA variants, AES-FF3-1, and AES-GCM-SIV. Some of these algorithms have NIST SP800 series drafts in progress and will be available on the prod server when the draft becomes a standard. 
 
 ## Current 1.0 Support
 Please check the [protocol specification](./draft-fussell-acvp-spec.html) for details on how to access the available resources. 
@@ -299,6 +338,7 @@ If you would like to talk to our developers, you may want to send email to our m
 
 
 # Related projects
+- [ACVP Server](https://github.com/usnistgov/ACVP-Server/) (Release/Issue tracking for NIST's implementation of the ACVP protocol)
 - [Automated Cryptographic Validation Testing](https://csrc.nist.gov/Projects/Automated-Cryptographic-Validation-Testing)
 - [Cisco libacvp](https://github.com/cisco/libacvp)
 - [Google Project Wycheproof](https://github.com/google/wycheproof)

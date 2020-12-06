@@ -1,8 +1,7 @@
 
 [#supported]
-== Supported KAS-IFCs
+== Supported KAS-IFC-SSC
 
 The following key derivation functions *MAY* be advertised by the ACVP compliant cryptographic module:
 
-* KAS-IFC / null / SP800-56Br2
-* KTS-IFC / null / SP800-56Br2
+* KAS-IFC-SSC / null / SP800-56Br2

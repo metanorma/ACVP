@@ -14,29 +14,58 @@ The test exchange consists of the ACV client requesting a particular vectorSet a
 
 JSON Web Token is described in <<RFC7519>> and is used as an authorization mechanism for gaining access to different resources.
 
-[[jwt_example]]
-[align=center,alt=,type=]
-An example JWT
-
+[[jwt_example_unsigned]]
+.Unsigned JWT
+[source,json]
 ....
 {
-"alg" : "none"
+    "alg" : "none"
 }
-   {
-     "iss" : "nist.gov",
-     "exp" : 1426420800,
-     "company" : "MyCompany",
-     "jti" : 0987654321,
-     "pkey" : "cc74f56acdba635079383a03941d68db55c7b3c2f (truncated)"
-  }
-  {
-  Empty octet string (since alg is none).
-  }
+{
+    "iss" : "nist.gov",
+    "nbf": 1598293915,
+    "exp": 1598295715,
+    "iat": 1598293915,
+    "pkey" : "cc74f56acdba635079383a03941d68db55c7b3c2f (truncated)"
+}
+{
 
+}
 ....
 
 
 The JWT can be secured if desired using the header encryption "alg" value defined to HS256(HMAC-SHA256) or one of the other secure values. Key agreement would follow RFC7518.
+
+[[jwt_example_signed]]
+.Signed JWT
+[source,json]
+....
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+{
+  "iss" : "nist.gov",
+  "nbf": 1598293915,
+  "exp": 1598295715,
+  "iat": 1598293915,
+  "pkey" : "cc74f56acdba635079383a03941d68db55c7b3c2f (truncated)"
+}
+{
+    "{signature}"
+}
+....
+
+where "{signature}" is made up of:
+
+....
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secret)
+....
+
+and where "HMACSHA256" is the algorithm specified in the JWT header.
 
 The first four claims are required, however "pkey" is an optional private claim used to pass the key used for encrypting the database at the server. Enabling this option is discussed further in <<testSessions_post>>
 
@@ -71,8 +100,6 @@ Workflow authorization flows. All exchanges shown are over HTTP.
          |        |                                 |      |        |
 
 ....
-
-
 
 [[jwtExpire]]
 ==== JWT Expiration/Renewal
@@ -296,7 +323,6 @@ Example 1
 ....
 /resource?property1[0]=eq:foo&property2[0]=eq:foo
 &property1[1]=eq:test&property2[1]=ne:bar
-
 ....
 
 For the example above the results returned would include resources that have: `property1` equal to `foo` and `property2` equal to `foo` or resources that have `property1` equal to `test` and `property2` not equal to `bar`.
@@ -305,9 +331,7 @@ For the example above the results returned would include resources that have: `p
 Example 2 based on <<vendors_get>>.
 
 ....
-
 /vendors?name[0]=contains:acme&name[1]=contains:test
-
 ....
 
 For the example above the vendor results returned would include resources that have a `name` property value that contains either `acme` or `test`.
@@ -336,7 +360,7 @@ A request resource is not externally updateable, but *SHOULD* update based on se
 Returns a paged listing of requests for the current user. Each element in the `data` array is a `request object` as described in <<request_get>>. See also <<paging_response>> for a description of a paged response.
 
 [[request_get]]
-==== Vendor Information
+==== Request Information
 
 *GET /requests/{requestId}*
 
@@ -344,17 +368,16 @@ Retrieve Information for a specific request
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "url": "/acvp/v1/requests/2",
         "status": "approved",
         "approvedUrl" : "/acvp/v1/vendors/2"
     }
 ]
-
 ....
 
 
@@ -405,14 +428,13 @@ Request the creation of a new Vendor.
 
 ===== Request
 
-`name` is required and all other properties are OPTIONAL.
-`url` is not allowed.
-`contactUrl` is not allowed.
+`name` is required and all other defined properties are OPTIONAL.
+Any additional properties included in the request are ignored.
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
       "name": "Acme, LLC",
       "website": "www.acme.acme",
@@ -448,10 +470,10 @@ Retrieve Information for a specific vendor
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "url": "/acvp/v1/vendors/2",
         "name": "Acme, LLC",
@@ -472,7 +494,6 @@ Retrieve Information for a specific vendor
         }]
     }
 ]
-
 ....
 
 [[vendor_put]]
@@ -490,10 +511,10 @@ Can be any subset of the updateable properties. If a property is not included it
 
 When updating the addresses array, the `url` of every address resource to be kept *MUST* be included. Any missing addresses will be removed and any new addresses will be created.
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "name": "Acme, LLC",
         "website": "www.acme.acme",
@@ -508,7 +529,6 @@ When updating the addresses array, the `url` of every address resource to be kep
         }]
     }
 ]
-
 ....
 
 ===== Response
@@ -563,12 +583,12 @@ Retrieve Information for a specific address
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
-        "url" : "/vendors/2/addresses/4"
+        "url" : "/vendors/2/addresses/4",
         "street1" : "123 Main Street",
         "locality" : "Any Town",
         "region" : "AnyState",
@@ -576,7 +596,6 @@ Retrieve Information for a specific address
         "postalCode" : "123456"
     }
 ]
-
 ....
 
 [[persons]]
@@ -618,15 +637,16 @@ Request the creation of a new Person.
 
 ===== Request
 
-`url` is not allowed.
+`fullName` and `vendorUrl` are required. Other defined resource properties are OPTIONAL. 
+Any additional properties included in the request are ignored.
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
       "fullName": "Jane Smith",
-      "vendorUrl" : "/acvp/v1/vendors/2"
+      "vendorUrl" : "/acvp/v1/vendors/2",
       "emails": ["jane.smith@acme.acme"],
       "phoneNumbers" : [
           {
@@ -639,7 +659,6 @@ Request the creation of a new Person.
       ]
     }
 ]
-
 ....
 
 ===== Response
@@ -655,10 +674,10 @@ Retrieve Information for a specific person
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
       "url": "/acvp/v1/persons/4",
       "fullName": "Jane Smith",
@@ -675,7 +694,6 @@ Retrieve Information for a specific person
       ]
     }
 ]
-
 ....
 
 [[person_put]]
@@ -691,10 +709,10 @@ The `url` property is not updateable.
 
 Can be any subset of the updateable properties. If a property is not included its value is not changed. A `null` value for a property indicates the value should be removed.
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
       "fullName": "Jane Smith",
       "emails": ["jane.smith@acme.acme"],
@@ -709,7 +727,6 @@ Can be any subset of the updateable properties. If a property is not included it
       ]
     }
 ]
-
 ....
 
 ===== Response
@@ -768,10 +785,13 @@ Register a new module.
 
 ===== Request
 
-[align=center,alt=,type=]
+`name`, `vendorUrl`, and `description` are required. Other defined resource properties are OPTIONAL. 
+Any additional properties included in the request are ignored.
+
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "name": "ACME ACV Test Module",
         "version": "3.0",
@@ -782,7 +802,6 @@ Register a new module.
         "description" : "ACME module with more"
     }
 ]
-
 ....
 
 ===== Response
@@ -798,23 +817,22 @@ Returns information about a specific module.
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "url": "/acvp/v1/modules/2",
         "name": "ACME ACV Test Module",
         "version": "2.0",
         "type": "Software",
-        "website" : "www.acme.acme"
+        "website" : "www.acme.acme",
         "vendorUrl": "/acvp/v1/vendors/2",
         "addressUrl": "/acvp/v1/vendors/2/addresses/4",
         "contactUrls": ["/acvp/v1/persons/1" ],
         "description": "ACME module with features."
     }
 ]
-
 ....
 
 [[module_put]]
@@ -828,15 +846,14 @@ It may not be possible to update all properties of a module once the module has 
 
 ===== Request
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "description" : "ACME module with more"
     }
 ]
-
 ....
 
 
@@ -884,10 +901,13 @@ Create a new operational environment.
 
 ===== Request
 
-[align=center,alt=,type=]
+`name` is required. Other defined resource properties are OPTIONAL. 
+Any additional properties included in the request are ignored.
+
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "name": "Ubuntu Linux 3.1 on AMD 6272 Opteron Processor
                  with Acme installed",
@@ -898,7 +918,6 @@ Create a new operational environment.
         ]
     }
 ]
-
 ....
 
 ===== Response
@@ -914,11 +933,11 @@ Returns information about a specific operational environment.
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
   {
-    "acvVersion": "1.0"
+    "acvVersion": "{acvp-version}"
   },
   {
     "url": "/acvp/v1/oes/21495",
@@ -954,7 +973,6 @@ Returns information about a specific operational environment.
     ]
   }
 ]
-
 ....
 
 [[oe_put]]
@@ -968,15 +986,14 @@ It may not be possible to update all (or any) properties of an operational envir
 
 ===== Request
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "name": "Windows 10 on Intel Xeon 5100 Series Processor",
     }
 ]
-
 ....
 
 ===== Response
@@ -1033,10 +1050,13 @@ Register a new dependency.
 
 ===== Request
 
-[align=center,alt=,type=]
+`name` is required. Other defined resource properties are OPTIONAL. 
+Any additional properties included in the request are ignored.
+
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "type": "software",
         "name": "Linux 3.1",
@@ -1044,7 +1064,6 @@ Register a new dependency.
         "cpe": "cpe-2.3:o:ubuntu:linux:3.1"
     }
 ]
-
 ....
 
 ===== Response
@@ -1071,7 +1090,7 @@ An array of property objects is returned with the following properties:
 
 ===== Example Dependency Property Elements
 
-[align=center,alt=,type=]
+[source,json]
 ....
     {
        "name": "swid",
@@ -1113,7 +1132,6 @@ An array of property objects is returned with the following properties:
        "validTypes": ["processor"],
        "description": "The name of the series of the processor."
     }
-
 ....
 
 [[dependency_get]]
@@ -1125,10 +1143,10 @@ Returns information about a specific dependency.
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "type": "software",
         "name": "Linux 3.1",
@@ -1136,7 +1154,6 @@ Returns information about a specific dependency.
         "cpe": "cpe-2.3:o:ubuntu:linux:3.1"
     }
 ]
-
 ....
 
 [[dependency_put]]
@@ -1150,15 +1167,14 @@ It may not be possible to update all (or any) properties of a dependency resourc
 
 ===== Request
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "name": "Linux 3.1.0",
     }
 ]
-
 ....
 
 ===== Response
@@ -1191,18 +1207,18 @@ Returns a list of available algorithms on the server.
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {"algorithms": [
         {
             "url": "/acvp/v1/algorithms/2",
             "name": "AES",
             "mode": "GCM",
             "versions": [
-                <acvp-version>,
-                <acvp-version>
+                "{acvp-version1}",
+                "{acvp-version2}"
             ]
         },
         {
@@ -1210,12 +1226,11 @@ Returns a list of available algorithms on the server.
             "name": "AES",
             "mode": "ECB",
             "versions": [
-                <acvp-version>
+                "{acvp-version}"
             ]
         }
     ]}
 ]
-
 ....
 
 [[algorithm_get]]
@@ -1232,6 +1247,42 @@ Response may vary from server depending on internal representation.
 ////
  -- Is this ok? Or do we want to standardize?
 ////
+
+[[validations]]
+=== Validations
+
+The Validations resources are informational only.
+
+[[validation_get]]
+==== Validation Information
+
+*GET /validations/{validationId}*
+
+Retrieve information about a specific validation.
+
+===== Response
+
+Response *MAY* vary from server depending on internal representation.  Available properties for validations *MAY* include (but are not limited to):
+
+* *url* - `string`, identifier for this resource
+* *validationId* - `string`, unique representation of the validation and source.
+* *moduleUrl* - `string`, the module URL associated with this validation. See <<modules>>
+* *oeUrls* - `array of string`, the Operational Environments associated with this validation. See <<oes>>
+
+[source,json]
+----
+[
+    {"acvVersion": "{acvp-version}"},
+    {
+        "url": "/acvp/v1/validations/50",
+        "validationId": "A12",
+        "moduleUrl": "/acvp/v1/modules/1",
+        "oeUrls": [
+            "/acvp/v1/oes/1"
+        ]
+    }
+]
+----
 
 [[testSessions]]
 === Test Sessions
@@ -1279,10 +1330,10 @@ Additional properties for each algorithm are based on the algorithm definition a
 
 If not provided `isSample`, and `encryptAtRest` default to `false`.
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
     "isSample" : true,
     "algorithms": [{
@@ -1291,20 +1342,19 @@ If not provided `isSample`, and `encryptAtRest` default to `false`.
         "property2": ["operation1", "operation2"]
     }]}
 ]
-
 ....
 
 ===== Response
 
 `accessToken` is a <<RFC7519>> which *MUST* be supplied as described in <<jwtToken>> in order to access the Test Session.
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "url": "/acvp/v1/testSessions/2",
-        "acvpVersion": <acvp-version>,
+        "acvpVersion": "{acvp-version}",
         "createdOn": "2018-05-31T12:03:43Z",
         "expiresOn": "2018-06-30T12:03:43Z",
         "encryptAtRest": false,
@@ -1315,7 +1365,6 @@ If not provided `isSample`, and `encryptAtRest` default to `false`.
         "accessToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6Ik (truncated)"
     }
 ]
-
 ....
 
 [[testSession_get]]
@@ -1327,13 +1376,13 @@ Returns information about the specific Test Session
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "url": "/acvp/v1/testSessions/2",
-        "acvpVersion": <acvp-version>,
+        "acvpVersion": "{acvp-version}",
         "createdOn": "2018-05-31T12:03:43Z",
         "expiresOn": "2018-06-30T12:03:43Z",
         "encryptAtRest": false,
@@ -1343,7 +1392,6 @@ Returns information about the specific Test Session
         "isSample": true
     }
 ]
-
 ....
 
 [[testSession_put]]
@@ -1373,10 +1421,10 @@ Available properties:
 *** *algorithm* - `string`, required
 *** *validationId* - `string`, required
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "moduleUrl": "/acvp/v1/modules/20",
         "oeUrl": "/acvp/v1/oes/60",
@@ -1395,7 +1443,6 @@ Available properties:
         }]
     }
 ]
-
 ....
 
 ===== Response
@@ -1420,10 +1467,10 @@ Request Validation Results for a Test Session
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-  {"acvVersion": <acvp-version>},
+  {"acvVersion": "{acvp-version}"},
   {
     "passed": false,
     "results": [
@@ -1438,7 +1485,6 @@ Request Validation Results for a Test Session
     ]
   }
 ]
-
 ....
 
 [[vectorSet]]
@@ -1471,16 +1517,15 @@ The property returned is:
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {"vectorSetUrls": [
         "/acvp/v1/testSessions/2/vectorSets/1",
         "/acvp/v1/testSessions/2/vectorSets/2"
     ]}
 ]
-
 ....
 
 [[vectorSet_get]]
@@ -1494,10 +1539,10 @@ The server will respond with the vector set associated with the vsId for the cli
 
 ===== Response
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {
         "vsId": 1,
         "algorithm": "TEST_ALGO_1",
@@ -1535,20 +1580,18 @@ The server will respond with the vector set associated with the vsId for the cli
         ]
     }
 ]
-
 ....
 
 If the server did not have enough time to generate the vector set for a given test session, the server may reply:
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-  { "acvVersion": <acvp-version> },
+  { "acvVersion": "{acvp-version}" },
   { "vsId": 1,
     "retry" : 30
   }
 ]
-
 ....
 
 Where:
@@ -1573,6 +1616,8 @@ There may be cases where a particular vector set may not be cancelled and the en
 
 Request Validation Results for a Vector Set.
 
+When `showExpected` was set to true from a POST/PUT under <<vectorSet_results_post>>, additional information is provided back to the client for any failing test cases.  The additional information includes an "expected" as well as "provided" object that *MAY* be useful in diagnosing issues within the vector set validation.
+
 ===== Response
 
 The client will send this request to learn the validation results for an individual vector set. Properties are:
@@ -1592,12 +1637,14 @@ The client will send this request to learn the validation results for an individ
 *** `incomplete` - indicates the server has not processed the test case.
 *** `expired` - indicates the client did not send the test case response to the server prior to expiry.
 *** `passed` - indicates the test case passed.
-** *reason* - `number`, provides additional detail in case of a `failed` `result` value.
+** *reason* - `string`, provides additional detail in case of a `failed` `result` value.
+** *expected* - `object`, provides the value(s) the server expected for the test case.
+** *provided* - `object`, provides the value(s) the client provided for the test case.
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-    {"acvVersion": <acvp-version>},
+    {"acvVersion": "{acvp-version}"},
     {"results": {
         "vsId": 1437,
         "disposition": "incomplete",
@@ -1620,7 +1667,6 @@ The client will send this request to learn the validation results for an individ
         ]
     }}
 ]
-
 ....
 
 [[vectorSet_results_post]]
@@ -1634,13 +1680,14 @@ Initial Submission of Vector Set Test Results.
 
 The client will send this request to submit the test results for an individual vector set. Similar to the vector set download the format will vary depending on the specific sub-specification of the algorithm and testType being tested.
 
-[align=center,alt=,type=]
+[source,json]
 ....
 [
-  {"acvVersion": <acvp-version>},
+  {"acvVersion": "{acvp-version}"},
   {
     "vsId": 1437,
     "revision": "1.0.0",
+    "showExpected": true,
     "testGroups": [{
       "tgId": 1,
       "tests": [{
@@ -1658,8 +1705,9 @@ The client will send this request to submit the test results for an individual v
     ]
   }
 ]
-
 ....
+
+The `showExpected` property is optional; when included (and set to true) the ACVP server will include additional information within the validation response file described in <<vectorSet_results_get>>.
 
 ===== Response
 

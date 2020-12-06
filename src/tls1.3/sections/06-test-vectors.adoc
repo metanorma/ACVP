@@ -43,22 +43,23 @@ Here is an abbreviated yet fully constructed example of the prompt.
 ----
 {
     "vsId": 1,
-    "algorithm": "kdf-components",
-    "mode": "tls",
-    "revision": "1.0",
+    "algorithm": "TLS-v1.3",
+    "mode": "KDF",
+    "revision": "RFC8446",
     "testGroups": [
         {
             "tgId": 1,
-            "hmacAlg": "SHA-1",
+            "testType": "AFT",
+            "hmacAlg": "SHA2-256",
             "runningMode": "PSK-DHE",
             "tests": [{
                 "tcId": 1,
-                "psk": "8E80670FE8DC70BCB9AADAE8DE89D7796374D8E6931794CF12F99383E1256CC477E5",
-                "dhe": "8E80670FE8DC70BCB9AADAE8DE89D7796374D8E6931794CF12F99383E1256CC477E5",
-                "helloClientRandom": "8913680310B713246CC1E98F0704D51FD9612B083ED34BA0369ECB61D6213F70ABAE",
-                "helloServerRandom": "46E129DCC9A8163C91E30AEC0A5157EB17AF9D85E35C990AE15FBC1B57302F1A1080",
-                "finishedClientRandom": "9924F6C6247AAEA59586E36D17AEFE679264AA6592E106331F4FC3A32CE2DCAAF356",
-                "finishedServerRandom": "47E13D592B48F4864D55C6853F68B97A723268A087BE45DC0425D44095668953BD53"
+                "psk": "AFCD61C51C5451034B6D8A34B310BDB6C824118989F3954E3CCAF881F8AC8A72",
+                "dhe": "EC77ADA430F5601DE78569A56A787B5EA328444EBE9B2FC6FA06E0E64EBCFED3",
+                "helloClientRandom": "1856D5EA8531D479690A63E94ABDB128BEFDAEEF04ED15B7D5E2D5558BB543C8",
+                "helloServerRandom": "E1EB5CA480114B3964022DEFF30737636EF8807C8FB2A298894D9D8F0AF6AFB8",
+                "finishedClientRandom": "3CE4CD8B44D091AC8A2862CDB322C3DCF9ED7AB047B134638B2FF2B83F4CD4BF",
+                "finishedServerRandom": "96FFEA222693C2AB5C13373AE1A4185DBFB4BB7BBB8F7C0870B5B833A8CFD1B7"
             }]
         }
     ]

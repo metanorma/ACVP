@@ -8,8 +8,8 @@
 * [[[SP800-135,NIST SP 800-135 Rev. 1]]]
 
 [%bibitem]
+[[ACVP]]
 === Automatic Cryptographic Validation Protocol
-id:: ACVP
 contributor::
 contributor.role:: author
 contributor.person.name.initial:: B.

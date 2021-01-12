@@ -2,19 +2,21 @@
 :title-main: ACVP SNMP Key Derivation Function JSON Specification
 :title-main-short: ACVP SNMP Key Derivation Function JSON Specification
 :fullname: Christopher Celi
-:affiliation: Computer Security Division, Information Technology Laboratory
+:affiliation: Information Technology Laboratory
+:affiliation_subdiv: Computer Security Division
 :doi: https://doi.org/10.6028/NIST.CSRC.AVCP.KDF-SNMP
 :series: nist-csts
 :series-title: Automated Cryptographic Validation Protocol
-:series-code: ACVP
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
 :nist-division: Computer Security Division, Information Technology Laboratory
 :nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
-:docnumber: AVCP.KDF-SNMP
+:docnumber: KDF-SNMP
 :issued-date: 2019-06-05
 :copyright-year: 2019
 :revision: 1
 :keywords: ACVP, cryptography
-:doc-email: acvp@nist.gov.example
+:doc-email: algotest@list.nist.gov
 :mn-document-class: nist
 :mn-output-extensions: xml,html,pdf,rxl
 :biblio-as-appendix:

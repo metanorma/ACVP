@@ -2,20 +2,21 @@
 :title-main: ACVP ECDSA Algorithm JSON Specification
 :title-main-short: ACVP ECDSA Algorithm JSON Specification
 :fullname: Barry Fussell
-:affiliation: Cisco Systems\, Inc.
+:affiliation: Cisco Systems, Inc.
 :address: 170 West Tasman Drive, San Jose, California
 :doi: https://doi.org/10.6028/NIST.CSRC.AVCP.ECDSA
 :series: nist-csts
 :series-title: Automated Cryptographic Validation Protocol
-:series-code: ACVP
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
 :nist-division: Computer Security Division, Information Technology Laboratory
 :nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
-:docnumber: AVCP.ECDSA
+:docnumber: ECDSA
 :issued-date: 2016-06-01
 :copyright-year: 2016
 :revision: 1
 :keywords: ACVP, cryptography
-:doc-email: acvp@nist.gov.example
+:doc-email: algotest@list.nist.gov
 :mn-document-class: nist
 :mn-output-extensions: xml,html,pdf,rxl
 :biblio-as-appendix:

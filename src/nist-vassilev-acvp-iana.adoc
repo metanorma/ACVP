@@ -2,19 +2,21 @@
 :title-main: ACVP IANA Registry
 :title-main-short: ACVP IANA Registry
 :fullname: Apostol Vassilev
-:affiliation: Computer Security Division, Information Technology Laboratory
+:affiliation: Information Technology Laboratory
+:affiliation_subdiv: Computer Security Division
 :doi: https://doi.org/10.6028/NIST.CSRC.AVCP.IANA
 :series: nist-csts
 :series-title: Automated Cryptographic Validation Protocol
-:series-code: ACVP
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
 :nist-division: Computer Security Division, Information Technology Laboratory
 :nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
-:docnumber: AVCP.IANA
+:docnumber: IANA
 :issued-date: 2019-06-05
 :copyright-year: 2019
 :revision: 1
 :keywords: ACVP, cryptography
-:doc-email: acvp@nist.gov.example
+:doc-email: algotest@list.nist.gov
 :mn-document-class: nist
 :mn-output-extensions: xml,html,pdf,rxl
 :biblio-as-appendix:
@@ -144,16 +146,22 @@ include::../../common/common-sections/99-references-acvp.adoc[]
 === ACVP Symmetric Algorithm JSON Specification
 docid::
 docid.id:: ACVP-Symmetric
-
-// <reference anchor="Sub-symmetric">
-//   <front>
-//     <title>ACVP Symmetric Algorithm JSON Specification</title>
-
-//     <author initials="C." surname="Celi">
-//       <organization>NIST</organization>
-//     </author>
-
-//     <date year="2018"></date>
-//   </front>
-// </reference>
-
+contributor::
+contributor.role:: author
+contributor.person.name.initial:: C.
+contributor.person.name.surname:: Celi
+contributor.person.affiliation.organization.name:: National Institute of Standards and Technology
+contributor.person.affiliation.organization.abbreviation:: NIST
+contributor::
+contributor.role:: author
+contributor.person.name.initial:: R.
+contributor.person.name.surname:: Hammett
+contributor.person.affiliation.organization.name:: Huntington Ingalls Industries
+contributor.person.affiliation.organization.abbreviation:: HII
+contributor::
+contributor.role:: publisher
+contributor.organization.name:: National Institute of Standards and Technology
+contributor.organization.abbreviation:: NIST
+date::
+date.type:: published
+date.value:: 2020-12-10

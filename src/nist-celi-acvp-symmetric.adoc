@@ -2,21 +2,23 @@
 :title-main: ACVP Symmetric Block Cipher Algorithm JSON Specification
 :title-main-short: ACVP Symmetric Block Cipher Algorithm JSON Specification
 :fullname: Christopher Celi
-:affiliation: Computer Security Division, Information Technology Laboratory
+:affiliation: Information Technology Laboratory
+:affiliation_subdiv: Computer Security Division
 :fullname_2: Russell Hammett
-:affiliation_2: HII
+:affiliation_2: HII Technical Solutions Division
 :doi: https://doi.org/10.6028/NIST.CSRC.AVCP.SYMMETRIC
 :series: nist-csts
 :series-title: Automated Cryptographic Validation Protocol
-:series-code: ACVP
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
 :nist-division: Computer Security Division, Information Technology Laboratory
 :nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
-:docnumber: AVCP.SYMMETRIC
+:docnumber: SYMMETRIC
 :issued-date: 2020-12-10
 :copyright-year: 2020
 :revision: 1
 :keywords: ACVP, cryptography
-:doc-email: acvp@nist.gov.example
+:doc-email: algotest@list.nist.gov
 :mn-document-class: nist
 :mn-output-extensions: xml,html,pdf,rxl
 :biblio-as-appendix:

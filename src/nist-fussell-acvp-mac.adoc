@@ -2,23 +2,24 @@
 :title-main: ACVP Message Authentication Algorithm JSON Specification
 :title-main-short: ACVP Message Authentication Algorithm JSON Specification
 :fullname: Barry Fussell
-:affiliation: Cisco Systems\, Inc.
+:affiliation: Cisco Systems, Inc.
 :address: 170 West Tasman Drive, San Jose, California
 :fullname_2: Russell Hammett
-:affiliation_2: G2\, Inc.
+:affiliation_2: G2, Inc.
 :address_2: 302 Sentinel Drive, Suite #300, Annapolis Junction, Maryland
 :doi: https://doi.org/10.6028/NIST.CSRC.AVCP.MAC
 :series: nist-csts
 :series-title: Automated Cryptographic Validation Protocol
-:series-code: ACVP
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
 :nist-division: Computer Security Division, Information Technology Laboratory
 :nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
-:docnumber: AVCP.MAC
+:docnumber: MAC
 :issued-date: 2018-08-01
 :copyright-year: 2018
 :revision: 1
 :keywords: ACVP, cryptography
-:doc-email: acvp@nist.gov.example
+:doc-email: algotest@list.nist.gov
 :mn-document-class: nist
 :mn-output-extensions: xml,html,pdf,rxl
 :biblio-as-appendix:

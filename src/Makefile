@@ -13,7 +13,7 @@ clean:
 	rm -rf *.err *.html *.xml *.pdf *.rxl documents/
 
 %.html %.pdf: %.adoc
-	bundle exec metanorma compile --agree-to-terms $<
+	bundle exec metanorma compile --agree-to-terms --continue-without-fonts $<
 
 publish:
 	mkdir -p documents

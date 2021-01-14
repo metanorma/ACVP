@@ -21,6 +21,7 @@ jobs:
           LANG: C.UTF-8
           LANGUAGE: C.UTF-8
         run: |
+          fontist update
           make clean all publish
         working-directory: ./src
       - uses: actions/upload-artifact@master

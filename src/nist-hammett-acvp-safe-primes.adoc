@@ -1,0 +1,69 @@
+= ACVP SafePrimes JSON Specification
+:title-main: ACVP SafePrimes JSON Specification
+:title-main-short: ACVP SafePrimes JSON Specification
+:fullname: Russell Hammett
+:affiliation: HII Technical Solutions Division
+:address: 302 Sentinel Drive, Suite #300, Annapolis Junction, Maryland
+:doi: https://doi.org/10.6028/NIST.CSRC.AVCP.SafePrimes
+:series: nist-csts
+:series-title: Automated Cryptographic Validation Protocol
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
+:nist-division: Computer Security Division, Information Technology Laboratory
+:nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
+:docnumber: SafePrimes
+:issued-date: 2019-06-05
+:copyright-year: 2019
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: algotest@list.nist.gov
+:mn-document-class: nist
+:mn-output-extensions: xml,html,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: SafePrimes
+:algo-short-name: SafePrimes
+
+include::common/common-sections/00-preface.adoc[]
+
+include::common/common-sections/00-abstract.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::safe-primes/sections/03-supported.adoc[]
+
+include::safe-primes/sections/04-testtypes.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::safe-primes/sections/05-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::safe-primes/sections/06-test-vectors.adoc[]
+
+include::safe-primes/sections/06-keygen-test-vectors.adoc[]
+
+include::safe-primes/sections/06-keyver-test-vectors.adoc[]
+
+include::safe-primes/sections/07-responses.adoc[]
+
+include::safe-primes/sections/07-keygen-responses.adoc[]
+
+include::safe-primes/sections/07-keyver-responses.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+include::common/common-sections/95-terminology.adoc[]
+
+include::common/common-sections/96-abbrev.adoc[]
+
+include::common/common-sections/97-revision-history.adoc[]
+
+// References must be given before appendixes
+include::safe-primes/sections/98-references.adoc[]

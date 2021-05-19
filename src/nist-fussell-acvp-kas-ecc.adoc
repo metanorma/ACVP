@@ -1,0 +1,66 @@
+= ACVP KAS ECC JSON Specification
+:title-main: ACVP KAS ECC JSON Specification
+:title-main-short: ACVP KAS ECC JSON Specification
+:fullname: Barry Fussell
+:affiliation: Cisco Systems, Inc.
+:address: 170 West Tasman Drive, San Jose, California
+:fullname_2: Russell Hammett
+:affiliation_2: G2, Inc.
+:address_2: 302 Sentinel Drive, Suite #300, Annapolis Junction, Maryland
+:doi: https://doi.org/10.6028/NIST.CSRC.AVCP.KAS-ECC
+:series: nist-csts
+:series-title: Automated Cryptographic Validation Protocol
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
+:nist-division: Computer Security Division, Information Technology Laboratory
+:nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
+:docnumber: KAS-ECC
+:issued-date: 2018-11-01
+:copyright-year: 2018
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: algotest@list.nist.gov
+:mn-document-class: nist
+:mn-output-extensions: xml,html,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: SP800-56a KAS ECC
+:algo-short-name: KAS ECC
+
+include::common/common-sections/00-preface.adoc[]
+
+include::common/common-sections/00-abstract.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::kas/sp800-56ar2/ecc/sections/03-supported.adoc[]
+
+include::kas/sp800-56ar2/ecc/sections/04-testtypes.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::kas/sp800-56ar2/ecc/sections/05-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::kas/sp800-56ar2/ecc/sections/06-test-vectors.adoc[]
+
+include::kas/sp800-56ar2/ecc/sections/07-responses.adoc[]
+
+include::kas/sp800-56ar2/ecc/sections/08-ecc-cdh-comp.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+include::common/common-sections/95-terminology.adoc[]
+
+include::common/common-sections/96-abbrev.adoc[]
+
+include::common/common-sections/97-revision-history.adoc[]
+
+// References must be given before appendixes
+include::kas/sp800-56ar2/ecc/sections/98-references.adoc[]

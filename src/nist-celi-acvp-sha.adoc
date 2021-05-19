@@ -1,0 +1,63 @@
+= ACVP Secure Hash Algorithm (SHA) JSON Specification
+:title-main: ACVP Secure Hash Algorithm (SHA) JSON Specification
+:title-main-short: ACVP Secure Hash Algorithm (SHA) JSON Specification
+:fullname: Christopher Celi
+:affiliation: Information Technology Laboratory
+:affiliation_subdiv: Computer Security Division
+:doi: https://doi.org/10.6028/NIST.CSRC.AVCP.SHA
+:series: nist-csts
+:series-title: Automated Cryptographic Validation Protocol
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
+:nist-division: Computer Security Division, Information Technology Laboratory
+:nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
+:docnumber: SHA
+:issued-date: 2018-11-01
+:copyright-year: 2018
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: algotest@list.nist.gov
+:mn-document-class: nist
+:mn-output-extensions: xml,html,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: Secure Hash Algorithm (SHA)
+:algo-short-name: SHA
+
+include::common/common-sections/00-preface.adoc[]
+
+include::common/common-sections/00-abstract.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::sha/sections/03-supported.adoc[]
+
+include::sha/sections/04-testtypes.adoc[]
+
+include::sha/sections/XX-requirements-covered.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::sha/sections/05-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::sha/sections/06-test-vectors.adoc[]
+
+include::sha/sections/07-responses.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+include::common/common-sections/95-terminology.adoc[]
+
+include::common/common-sections/96-abbrev.adoc[]
+
+include::common/common-sections/97-revision-history.adoc[]
+
+// References must be given before appendixes
+include::sha/sections/98-references.adoc[]

@@ -1,0 +1,77 @@
+= Automated Cryptographic Validation Protocol (ACVP) JSON Specification
+:title-main: Automated Cryptographic Validation Protocol (ACVP) JSON Specification
+:title-main-short: Automated Cryptographic Validation Protocol (ACVP) JSON Specification
+:fullname: Barry Fussell
+:affiliation: Cisco Systems, Inc.
+:address: 170 West Tasman Drive, San Jose, California
+:fullname_2: Apostol Vassilev
+:affiliation_2: Information Technology Laboratory
+:affiliation_subdiv_2: Computer Security Division
+:fullname_3: Harold Booth
+:affiliation_2: Information Technology Laboratory
+:affiliation_subdiv_3: Computer Security Division
+:doi: https://doi.org/10.6028/NIST.CSRC.AVCP.SPEC
+:series: nist-csts
+:series-title: Automated Cryptographic Validation Protocol
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
+:nist-division: Computer Security Division, Information Technology Laboratory
+:nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
+:docnumber: SPEC
+:issued-date: 2019-01-01
+:copyright-year: 2019
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: algotest@list.nist.gov
+:mn-document-class: nist
+:mn-output-extensions: xml,html,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+include::protocol/sections/00-abstract.adoc[]
+
+include::protocol/sections/01-intro.adoc[]
+
+include::common/common-sections/02-conventions.adoc[]
+
+include::protocol/sections/03-overview.adoc[]
+
+include::protocol/sections/04-architecture.adoc[]
+
+include::protocol/sections/05-acvprotocol.adoc[]
+
+include::protocol/sections/06-security.adoc[]
+
+include::protocol/sections/07-encoding.adoc[]
+
+include::protocol/sections/08-subsize.adoc[]
+
+include::protocol/sections/09-login.adoc[]
+
+include::protocol/sections/10-versioning.adoc[]
+
+include::protocol/sections/11-messaging.adoc[]
+
+include::protocol/sections/12-largesub.adoc[]
+
+include::protocol/sections/13-vsexpire.adoc[]
+
+include::protocol/sections/14-errorcodes.adoc[]
+
+include::protocol/sections/15-extensions.adoc[]
+
+include::protocol/sections/16-customspec.adoc[]
+
+// include::common/common-sections/11-iana.adoc[]
+
+include::protocol/sections/18-other.adoc[]
+
+include::protocol/sections/19-contributors.adoc[]
+
+// References must be given before appendixes
+include::protocol/sections/98-references.adoc[]
+
+include::protocol/sections/97-examples.adoc[]
+
+

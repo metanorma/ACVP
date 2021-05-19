@@ -1,0 +1,61 @@
+= ACVP KAS KDF OneStep Specification
+:title-main: ACVP KAS KDF OneStep Specification
+:title-main-short: ACVP KAS KDF OneStep Specification
+:fullname: Russell Hammett
+:affiliation: HII Technical Solutions Division
+:address: 302 Sentinel Drive, Suite #300, Annapolis Junction, Maryland
+:doi: https://doi.org/10.6028/NIST.CSRC.AVCP.KAS-KDF-OneStep
+:series: nist-csts
+:series-title: Automated Cryptographic Validation Protocol
+:series-abbrev: ACVP
+:series-mrprefix: CSRC.ACVP
+:nist-division: Computer Security Division, Information Technology Laboratory
+:nist-division-address: 100 Bureau Drive (Mail Stop 8930) Gaithersburg, MD 20899-8930
+:docnumber: KAS-KDF-OneStep
+:issued-date: 2020-07-14
+:copyright-year: 2020
+:revision: 1
+:keywords: ACVP, cryptography
+:doc-email: algotest@list.nist.gov
+:mn-document-class: nist
+:mn-output-extensions: xml,html,pdf,rxl
+:biblio-as-appendix:
+:local-cache-only:
+:data-uri-image:
+
+// Singular name of the algorithm
+:spec-algorithm: KAS-KDF-OneStep SP800-56Cr1
+:algo-short-name: KAS-KDF-OneStep SP800-56Cr1
+
+include::common/common-sections/00-preface.adoc[]
+
+include::common/common-sections/00-abstract.adoc[]
+
+include::common/common-sections/01-intro.adoc[]
+
+include::kas/sp800-56cr1/onestep/sections/03-supported.adoc[]
+
+include::kas/sp800-56cr1/onestep/sections/04-testtypes.adoc[]
+
+include::common/common-sections/05-capabilities-description.adoc[]
+
+include::common/common-sections/051-prerequisites.adoc[]
+
+include::kas/sp800-56cr1/onestep/sections/05-capabilities.adoc[]
+
+include::common/common-sections/06-test-vector-intro.adoc[]
+
+include::kas/sp800-56cr1/onestep/sections/06-test-vectors.adoc[]
+
+include::kas/sp800-56cr1/onestep/sections/07-responses.adoc[]
+
+include::common/common-sections/10-security.adoc[]
+
+include::common/common-sections/95-terminology.adoc[]
+
+include::common/common-sections/96-abbrev.adoc[]
+
+include::common/common-sections/97-revision-history.adoc[]
+
+// References must be given before appendixes
+include::kas/sp800-56cr1/onestep/sections/98-references.adoc[]

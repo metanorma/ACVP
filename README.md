@@ -1,5 +1,5 @@
 # ACVP
-The [Automated Cryptographic Validation Protocol](https://pages.nist.gov/ACVP/draft-fussell-acvp-spec.html) (ACVP) is a protocol to support a new National Voluntary Laboratory Accreditation Program (NVLAP) testing scope at the [National Institute of Standards and Technology (NIST)](https://www.nist.gov).  
+The [Automated Cryptographic Validation Protocol](https://pages.nist.gov/ACVP/draft-fussell-acvp-spec.html) (ACVP) is a protocol to support a new National Voluntary Laboratory Accreditation Program (NVLAP) testing scope at the [National Institute of Standards and Technology (NIST)](https://www.nist.gov).
 
 The new testing scope, 17ACVT, is available, and defined in [NIST Handbook 150-17](https://www.nist.gov/system/files/documents/2020/05/12/NIST-HB-150-17-2020.pdf).
 
@@ -42,7 +42,7 @@ Using Metanorma is not required to view the documents in the GitHub repository. 
 
 Metanorma is a library for writing standards. It can compile `.adoc` files into multiple common standards formats including the IETF's RFC format.
 
-Use the instructions here to set up Metanorma: https://www.metanorma.com/author/topics/install/
+Use the instructions here to set up Metanorma: https://www.metanorma.org/author/topics/install/
 
 To compile an individual file, to make sure your gem versions are up to date run
 
@@ -53,38 +53,34 @@ gem install metanorma-cli
 From there run
 
 ```
-metanorma compile -t ietf -x html file.adoc
+metanorma compile draft-vassilev-acvp-drbg.adoc
 ```
 
-You can switch between `-x html` and `-x txt` for different RFC output formats.
+You can switch between `-x html` and `-x pdf` for different output formats.
 
-If you make changes to a file that's referenced by a top level spec, run metanorma
-on the referenced file prior to running it on the top level file. E.g.,
+If you make changes to a file that's referenced by a top level spec, just run it
+on the top level file. E.g.,
 
 ```
-metanorma compile -t ietf -x html symmetric/sections/04-testtypes.adoc
-metanorma compile -t ietf -x html draft-celi-acvp-symmetric.adoc
+# This file was changed: symmetric/sections/04-testtypes.adoc
+# Run it on the top-level document
+metanorma compile draft-celi-acvp-symmetric.adoc
 ```
 
 Or you can use the `Makefile` which is available.
 
-To build all documents, html and txt
+To build all documents, HTML and PDF
 
 ```
-make all
+metanorma site generate
 ```
 
 To build a specific file
 
 ```
-make specific-file.html
+metanorma compile draft-celi-acvp-symmetric.adoc
 ```
 
-To remove all xml, txt, html, err produces files,
-
-```
-make clean
-```
 
 # Objective
 The objective of this project is to define a protocol allowing independent implementation by all vendors participating in the NIST cryptographic validation programs ([CAVP](https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program#) and [CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program#)) for accelerated test data generation and requisition, reporting of test results, and validation of NIST-approved cryptographic algorithms (see FIPS140-2 [Annex A](https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexa.pdf), [Annex C](https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexc.pdf) and [Annex D](https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexd.pdf)). For FIPS140-3, the NIST-approved cryptographic algorithms are defined in the [SP800-140 Document Series](https://csrc.nist.gov/publications/detail/sp/800-140/final).

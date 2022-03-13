@@ -1,9 +1,4 @@
-*.DS_Store
-*.html
-!index.html
-*.txt
-*.xml
-*.nits
+.DS_Store
 *.err
 *.log
 Gemfile.lock
